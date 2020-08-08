@@ -2,7 +2,7 @@
 
 Angular project i created in a span of about 2 weeks, started with 0 Angular knowledge, ended with something i think is somewhat decent.
 One of the project requirements was that everything should be done on the client side, aka, no backend, and that is why this project is using IndexedDB.
-When running this project for the first time, go to localhost:4200/debug and click on the buttons in any order to add data to IndexedDB.
+When running this project for the first time, go to `http://localhost:4200/debug` and click on the buttons in any order to add data to IndexedDB.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
