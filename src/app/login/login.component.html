@@ -1,0 +1,49 @@
+
+
+
+<div fxLayoutAlign="center center" fxLayout.lt-md="column" fxLayout="row" fxFlexFill>
+
+  <div fxLayout="column" fxLayout.lt-md="row" >
+
+  <mat-card style="width: 280px;">
+    <mat-card-title>Login</mat-card-title>
+
+    <form fxLayout="column" [formGroup]="loginForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="loginEmail" matInput placeholder="example@example.com">
+        <mat-error *ngIf="loginForm.get('loginEmail').invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input formControlName="loginPassword" type="password" matInput maxlength="24">
+        <mat-error *ngIf="loginForm.get('loginPassword').invalid">{{getPasswordErrorMessage()}}</mat-error>
+
+      </mat-form-field>
+    </form>
+      <button [disabled]="loginForm.invalid" mat-raised-button (click)="loginUser(loginForm.value)" color="primary" style="width: 100%">Login</button>
+    <mat-error *ngIf="userExists">Username or password incorrect</mat-error>
+  </mat-card>
+  </div>
+  <div class="line-container" fxLayout="column" fxLayout.lt-md="row">
+    <div id="line-before" class="" ></div>
+    <div id="line-text" class="line-text">Or</div>
+    <div  id="line-after" class="" ></div>
+  </div>
+  <mat-card >
+    <mat-card-title>Register</mat-card-title>
+    <mat-card-content>
+      <p>Click on the button below to register</p>
+    </mat-card-content>
+    <button mat-raised-button color="primary" routerLink="/register" style="width: 100%">Register</button>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+.event-editor{
+
+  width: 90%;
+}
+.event-creation-container{
+  margin-top: 20px;
+  width: 50%;
+  transition: 0.5s;
+}
+.event-input-fields{
+  width: 350px !important;
+  display: block !important;
+}
+
+@media screen and (max-width: 490px) {
+
+  .event-creation-container{
+    width: 100%;
+    transition: 0.5s;
+  }
+  .event-editor{
+    width: 100%;
+  }
+}

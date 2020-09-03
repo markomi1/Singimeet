@@ -1,0 +1,58 @@
+
+.profile-card-container{
+  margin-top: 10%;
+}
+.profile-card{
+  width: 900px;
+  padding: 0px;
+}
+.update-profile-button{
+  width: 150px;
+  height: 40px;
+}
+.material-icons.color_gradient {
+  color: transparent;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 110px;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(#3F51B5 20%, black);
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0 650px 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "ProfileHeader ProfileHeader ProfileHeader" "ProfileHeader ProfileHeader ProfileHeader" "ProfileData ProfileData ProfileData" "ProfileData ProfileData ProfileData";
+
+}
+
+.ProfileHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: ". ProfilePic ." ". ProfileName .";
+  grid-area: ProfileHeader;
+  background-image: linear-gradient(to bottom right, #3F51B5, white);
+}
+
+.ProfilePic {
+  margin-top: -25%;
+  grid-area: ProfilePic;
+  justify-self: center;
+}
+
+.ProfileName {
+  grid-area: ProfileName;
+  justify-self: center;
+  color: white;
+}
+
+.ProfileData {
+  margin-bottom: -10%;
+  grid-area: ProfileData;
+}

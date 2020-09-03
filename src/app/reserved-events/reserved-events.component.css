@@ -1,0 +1,21 @@
+.res-event-container{
+  width: 900px !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "EventName EventDates EventLocation GoToEventButton";
+  justify-content: center;
+}
+
+.EventName { grid-area: EventName; }
+
+.EventDates { grid-area: EventDates; }
+
+.EventLocation { grid-area: EventLocation; }
+
+.GoToEventButton { grid-area: GoToEventButton; }

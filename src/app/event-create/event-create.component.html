@@ -1,0 +1,75 @@
+
+<div fxLayout="column" fxLayoutAlign="start center">
+<form  [formGroup]="eventCreateForm" class="event-creation-container">
+
+<mat-form-field class="event-input-fields" fxLayout="colum">
+  <mat-label>Event name</mat-label>
+  <input matInput #eventName formControlName="eventName" maxlength="64">
+  <mat-hint align="end">{{eventName.value.length}} / 64</mat-hint>
+</mat-form-field>
+
+  <mat-form-field class="event-input-fields" fxLayout="colum">
+    <mat-label>Event picture URL</mat-label>
+    <input matInput formControlName="eventPictureURL">
+  </mat-form-field>
+  <button mat-raised-button (click)="checkImage()"> Check Image </button>
+  <mat-form-field class="event-input-fields" style="margin-top: 5px" fxLayout="colum">
+    <mat-label>Short event description</mat-label>
+    <textarea matInput #shortEventDescription formControlName="eventCardDescription" maxlength="128"></textarea>
+    <mat-hint align="end">{{shortEventDescription.value.length}} / 128</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="event-input-fields" fxLayout="colum">
+    <input matInput [ngxMatDatetimePicker]="startDatePicker" placeholder="Starting Date" formControlName="startDate"
+           [min]="minDate" >
+    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #startDatePicker (closed)="closedEvent()" [showSpinners]="showSpinners">
+    </ngx-mat-datetime-picker>
+  </mat-form-field>
+  <mat-form-field class="event-input-fields" fxLayout="colum">
+    <input matInput [ngxMatDatetimePicker]="endDatePicker" placeholder="Ending Date" formControlName="endDate"
+           [min]="minDate2">
+    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #endDatePicker [showSpinners]="showSpinners">
+    </ngx-mat-datetime-picker>
+  </mat-form-field>
+
+  <mat-form-field  class="event-input-fields" fxLayout="colum">
+    <input type="text"
+           placeholder="Select event location"
+           aria-label="Number"
+           matInput
+           formControlName="eventLocation"
+           [matAutocomplete]="autoLocation">
+    <mat-autocomplete autoActiveFirstOption #autoLocation="matAutocomplete">
+      <mat-option *ngFor="let locations of filteredLocations | async" [value]="locations">
+        {{locations}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field  class="event-input-fields" fxLayout="colum">
+    <input type="text"
+           placeholder="Select event category"
+           aria-label="Number"
+           matInput
+           formControlName="eventCategory"
+           [matAutocomplete]="autoCategories">
+    <mat-autocomplete autoActiveFirstOption #autoCategories="matAutocomplete">
+      <mat-option *ngFor="let categories of filteredCategories | async" [value]="categories">
+        {{categories}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="event-input-fields" fxLayout="colum">
+    <mat-label>Event address</mat-label>
+    <input matInput formControlName="eventAddress">
+  </mat-form-field>
+<div class="event-editor">
+  <ckeditor [editor]="Editor" #editor [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ] }" data="<p>Event content here</p>" (change)="onChange($event)"></ckeditor>
+</div>
+  <button mat-raised-button style="margin-top:  10px" color="primary" fxLayoutAlign="center end" (click)="makeEvent(eventCreateForm.value)"> Create Event</button>
+</form>
+
+</div>
+

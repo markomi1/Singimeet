@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+<div>
+  <div
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="32px"
+    fxLayoutAlign="flex-start ">
+    <ng-container *ngFor="let _event of events">
+
+      <mat-card  class="event-card" fxFlex="0 1 calc(19% - 32px)" style="cursor: pointer"
+                fxFlex.lt-md="0 1 calc(50% - 32px)"
+                fxFlex.lt-sm="100%" (click)="openDialog(_event.eventID)">
+        <img mat-card-image  src="{{_event.eventPictureURL}}" alt="Photo the event" >
+        <mat-card-title>
+          <p>{{_event.eventName}}</p>
+        </mat-card-title>
+        <mat-card-subtitle style="display: inline-flex; width: 100%">{{_event.eventStartDate | date:'MMM d, y, HH:mm'}} <br>Participants number: {{_event.attendees.length}}</mat-card-subtitle>
+
+        <mat-card-content>
+          <p>{{_event.eventCardDescription}} </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+
+        </mat-card-actions>
+      </mat-card>
+
+    </ng-container>
+  </div>
+
+
+
+</div>

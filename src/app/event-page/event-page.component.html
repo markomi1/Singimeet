@@ -1,0 +1,45 @@
+
+
+
+
+<div   fxLayoutAlign="center start" fxLayout.lt-md="column" fxLayout="row " style="z-index: 100" fxFlexFill class="event-content-container">
+  <mat-card class="event-content-card">
+    <mat-card-title><img class="event-card-image" src="{{event.eventPictureURL}}"></mat-card-title>
+
+
+    <div class="grid-container">
+      <div class="timeAndDate">
+        <p>{{event.eventStartDate | date:'MMM d, y, HH:mm'}} - {{event.eventEndDate | date:'MMM d, y, HH:mm'}}</p>
+         <p> Number of participants: {{numberOfParticipants}}</p>
+      </div>
+      <div class="EventButtons" fxLayoutAlign="start center" fxLayout="column">
+        <button mat-raised-button color="primary" (click)="reserveEvent()" [disabled]="reserveButtonFlag" >{{reserveButtonText}}</button>
+        <button mat-raised-button color="primary" (click)="editEvent()" *ngIf="event.eventCreatorID == userID">Edit Event</button>
+        <button mat-raised-button color="primary" (click)="deleteEvent()" *ngIf="event.eventCreatorID == userID">Delete Event</button>
+      </div>
+      <div class="mainContent" >
+        <mat-card-content [innerHTML]="event.eventDescription"></mat-card-content>
+      </div>
+      <div class="comments" *ngIf="areThereComments">
+        <mat-divider></mat-divider>
+        <h2>COMMENTS</h2>
+        <mat-card class="comment" *ngFor="let _comment of eventComments">
+          <mat-card-title>{{_comment.commentAuthor}}</mat-card-title>
+          <mat-card-content>{{_comment.commentContent}}</mat-card-content>
+        </mat-card>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="commentTextArea" fxLayout="column">
+
+        <mat-form-field appearance="fill" class="comment-textarea">
+          <mat-label>Comment</mat-label>
+          <textarea  [formControl]="commentForm" #commentArea matInput maxlength="128" ></textarea>
+          <mat-hint align="end">{{commentArea.value.length}} / 128</mat-hint>
+        </mat-form-field>
+        <button mat-raised-button (click)="addComment()" [disabled]="commentForm.invalid || commentButtonDisableFlag" class="comment-textarea-button">Submit comment</button>
+      </div>
+    </div>
+
+  </mat-card>
+</div>
+<img src="{{event.eventPictureURL}}" class="background-pic">

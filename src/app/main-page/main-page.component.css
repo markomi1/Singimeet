@@ -1,0 +1,23 @@
+.main-search-bar{
+  width: 600px;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 640px) {
+
+  .main-search-bar{
+    width: 400px;
+    transition: 0.5s;
+  }
+}
+@media screen and (max-width: 540px) {
+
+  .main-search-bar{
+    width: 300px;
+    transition: 0.5s;
+  }
+}
+
+.toggle-buttons{
+  margin-top: 20px;
+}

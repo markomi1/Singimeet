@@ -1,0 +1,13 @@
+<mat-form-field formControlName="locationInput" class="example-full-width">
+  <input type="text"
+         placeholder="Select your location"
+         aria-label="Number"
+         matInput
+         formControlName="locationInput"
+         [matAutocomplete]="auto">
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option *ngFor="let locations of filteredLocations | async" [value]="locations">
+      {{locations}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

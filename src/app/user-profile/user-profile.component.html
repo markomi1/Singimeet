@@ -1,0 +1,72 @@
+
+
+<div fxLayoutAlign="center start" class="profile-card-container">
+
+
+<mat-card class="profile-card">
+  <div class="grid-container">
+    <div class="ProfileHeader">
+      <div class="ProfilePic">
+        <mat-icon class="material-icons color_gradient">account_circle</mat-icon>
+      </div>
+      <div class="ProfileName">
+        <h1>{{userFullName}}</h1>
+      </div>
+    </div>
+    <div class="ProfileData">
+      <mat-divider></mat-divider>
+      <form [formGroup]="profileFormGroup" fxLayout="column" fxLayoutAlign="start center" style="margin-top: 20px">
+        <mat-form-field appearance="fill">
+          <mat-label>Full Name</mat-label>
+          <input formControlName="UserFullName" matInput placeholder="John Doe">
+          <mat-error *ngIf="profileFormGroup.get('UserFullName').invalid">{{getFullNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input formControlName="UserEmail" matInput placeholder="John Doe" #regEmail  >
+          <mat-error *ngIf="profileFormGroup.get('UserEmail').invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input formControlName="UserPassword" matInput type="password" placeholder="">
+          <mat-error *ngIf="profileFormGroup.get('UserPassword').invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input type="text"
+                 placeholder="Select your location"
+                 aria-label="Number"
+                 matInput
+                 formControlName="UserLocation"
+                 [matAutocomplete]="UserLocation">
+          <mat-autocomplete autoActiveFirstOption #UserLocation="matAutocomplete">
+            <mat-option *ngFor="let locations of filteredLocations | async" [value]="locations">
+              {{locations}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      <mat-expansion-panel style="margin-bottom: 20px;width: 50%;">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Categories
+          </mat-panel-title>
+          <mat-panel-description>
+            Select some of the categories below
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-chip-list formControlName="selectedCategory" multiple >
+          <mat-chip *ngFor="let offer of offers" selectable="true"
+                    [selected]="isSelected(offer)"
+                    (click)="toggleOffer(offer)">
+            {{offer.interests}}
+            <mat-icon>{{isSelected(offer) ? "close" : "add"}}</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+      </mat-expansion-panel>
+        <button mat-raised-button class="update-profile-button" [disabled]="profileFormGroup.invalid" (click)="updateProfile(profileFormGroup.value)">Submit Changes</button>
+      </form>
+
+
+    </div>
+  </div>
+</mat-card>
+</div>

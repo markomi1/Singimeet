@@ -1,0 +1,55 @@
+
+
+
+
+
+
+<h2 mat-dialog-title>Reserved and Expired Events</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="res-event-container">
+  <mat-accordion  multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Reserved Events
+        </mat-panel-title>
+        <mat-panel-description>
+          List of reserved events
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+
+      <div class="grid-container" *ngFor="let event of reservedEvents">
+        <div class="EventName">{{event.eventName}}</div>
+        <div class="EventDates">{{event.startTime | date:'MMM d, y, HH:mm'}} - {{event.endTime | date:'MMM d, y, HH:mm'}} </div>
+        <div class="EventLocation">{{event.location}}</div>
+        <div class="GoToEventButton"><button mat-raised-button [mat-dialog-close]="true" (click)="goToEvent(event.eventGoto)">Go to event</button> </div>
+      </div>
+
+      </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Been-to Events
+        </mat-panel-title>
+        <mat-panel-description>
+          List of been-to events
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="grid-container" *ngFor="let event of beenToEvents">
+        <div class="EventName">{{event.eventName}}</div>
+        <div class="EventDates">{{event.startTime | date:'MMM d, y, HH:mm'}} - {{event.endTime | date:'MMM d, y, HH:mm'}} </div>
+        <div class="EventLocation">{{event.location}}</div>
+        <div class="GoToEventButton"><button mat-raised-button [mat-dialog-close]="true" (click)="goToEvent(event.eventGoto)">Go to event</button> </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>
