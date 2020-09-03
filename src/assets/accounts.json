@@ -1,0 +1,31 @@
+[{
+  "uniqueUserID": "R0HXED!6N;/9",
+  "fullName": "John Doe",
+  "userEmail": "john.doe@example.com",
+  "userPassword": "password",
+  "userLocation": "Smederevo",
+  "reservedEvents": ["GQC6CW64GEU5JRL3OQXHIYQH","W8EEXWZKM6997I5HFW9TCJPI","RR532CVVUM5KQYFHIQ2EOFK9"],
+  "beenToEvents": [],
+  "interests": ["Arts & Entertainment"],
+  "user_id": 1
+}, {
+  "uniqueUserID": "~]KX%[U~*7T!",
+  "fullName": "Marko Mitrovic",
+  "userEmail": "marko@marko.com",
+  "userPassword": "mitrovic1",
+  "userLocation": "Smederevo",
+  "reservedEvents": ["FORLOEQSLGX3SLI82TMANPTR","RR532CVVUM5KQYFHIQ2EOFK9","GQC6CW64GEU5JRL3OQXHIYQH"],
+  "beenToEvents": [],
+  "interests": ["Internet & Technology", "Science"],
+  "user_id": 2
+}, {
+  "uniqueUserID": ",4VIY`$.K54)",
+  "fullName": "Miljko Miljkovic",
+  "userEmail": "miljko.miljkovic@gmail.com",
+  "userPassword": "miljkovic1",
+  "userLocation": "Novi Sad",
+  "reservedEvents": [],
+  "beenToEvents": [],
+  "interests": ["Health & Support", "Hobbies", "Cultures & Languages"],
+  "user_id": 3
+}]
