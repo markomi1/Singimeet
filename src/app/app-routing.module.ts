@@ -12,7 +12,7 @@ import {EditEventComponent} from './edit-event/edit-event.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/debug', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'main', component: MainPageComponent, canActivate: [AuthGuard]},

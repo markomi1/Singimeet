@@ -149,8 +149,10 @@ export class EventServiceService {
         for (let i = 0; i < attendees.length; i++) {
           this.account.getProfileGivenUserID(attendees[i]).then(
             profile => {
-              let arr = profile['reservedEvents'].filter(e => e !== result['eventID']);
-              profile['reservedEvents'] = arr;
+              let reservedEventsArray = profile['reservedEvents'].filter(e => e !== result['eventID']);
+              let beenToEventsArray = profile['beenToEvents'].filter(e => e !== result['eventID']); //New
+              profile['reservedEvents'] = reservedEventsArray;
+              profile['beenToEvents'] = beenToEventsArray; //New
               this.account.updateProfile(profile);
             }
           );

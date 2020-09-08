@@ -1,7 +1,12 @@
-<p>This is used to load stuff into the database</p>
+<p  fxLayoutAlign="center center">This page is used to load data into the IndexedDB</p>
+<p  fxLayoutAlign="center center">Click on all 4 buttons bellow in any order after which the app will be ready.</p>
 
+<div id="button-holder" fxLayoutAlign="center center">
+  <button mat-raised-button style="margin-left: 5px" (click)="loadAccountIntoDB()"> Load accounts into IndexedDB</button>
+  <button mat-raised-button style="margin-left: 5px" (click)="loadLocationsIntoDB()"> Load locations into IndexedDB</button>
+  <button mat-raised-button style="margin-left: 5px" (click)="loadTagsIntoDB()"> Load tags into IndexedDB</button>
+  <button mat-raised-button style="margin-left: 5px" (click)="loadEventsIntoDB()"> Load events into IndexedDB</button>
+  <button mat-raised-button color="warn" style="margin-left: 5px" (click)="deletedatabase()">Delete data in the database</button>
+</div>
 
-<button mat-raised-button style="margin-left: 5px" (click)="loadAccountIntoDB()"> Load accounts into IndexedDB</button>
-<button mat-raised-button style="margin-left: 5px" (click)="loadLocationsIntoDB()"> Load locations into IndexedDB</button>
-<button mat-raised-button style="margin-left: 5px" (click)="loadTagsIntoDB()"> Load tags into IndexedDB</button>
-<button mat-raised-button style="margin-left: 5px" (click)="loadEventsIntoDB()"> Load events into IndexedDB</button>
+<p fxLayoutAlign="center center" >After loading data into the DB you can go back to the  &nbsp; <a href="/login"> /login </a> &nbsp; or  &nbsp; <a href="/register"> /register </a>  &nbsp; page.</p>

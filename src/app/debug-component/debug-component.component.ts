@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {NgxIndexedDBService} from 'ngx-indexed-db';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 
@@ -12,11 +13,17 @@ import {NgxIndexedDBService} from 'ngx-indexed-db';
 })
 export class DebugComponentComponent implements OnInit {
 
-  constructor(private http: HttpClient,private  dbService: NgxIndexedDBService,) {
+  constructor(private http: HttpClient,private  dbService: NgxIndexedDBService,private _snackBar: MatSnackBar,) {
     window['debugComponent'] = this; //For calling TypeScript functions in browser console
   }
 
   ngOnInit(): void {
+
+  }
+  openSnackBar(message: string, action: string, duration: number) {
+    this._snackBar.open(message, action, {
+      duration: duration,
+    });
   }
 
   loadLocationsIntoDB(){
@@ -27,6 +34,7 @@ export class DebugComponentComponent implements OnInit {
           this.dbService.add('locations',res[i]).then(
             result => {
               console.log("Successfully loaded locations into database")
+              this.openSnackBar("Successfully loaded locations into database","",1000)
             }
           )
         }
@@ -45,6 +53,8 @@ export class DebugComponentComponent implements OnInit {
           this.dbService.add('accounts',res[i]).then(
             result => {
               console.log("Successfully loaded Accounts into database")
+              this.openSnackBar("Successfully loaded Accounts into database","",1000)
+
             }
           )
         }
@@ -63,6 +73,8 @@ export class DebugComponentComponent implements OnInit {
           this.dbService.add('tags',res[i]).then(
             result => {
               console.log("Successfully loaded Tags into database")
+              this.openSnackBar("Successfully loaded Tags into database","",1000)
+
             }
           )
         }
@@ -80,6 +92,8 @@ export class DebugComponentComponent implements OnInit {
           this.dbService.add('events',res[i]).then(
             result => {
               console.log("Successfully loaded events into database")
+              this.openSnackBar("Successfully loaded events into database","",1000)
+
             }
           )
         }
@@ -87,5 +101,13 @@ export class DebugComponentComponent implements OnInit {
       error => {
         console.error(error)
       })
+  }
+
+  deletedatabase(){
+    this.dbService.deleteDatabase().then(
+      result => {
+
+      }
+    )
   }
 }
