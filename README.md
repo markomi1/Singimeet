@@ -1,26 +1,21 @@
 # Singimeet
 
-Angular project i created in a span of about 2 weeks, started with 0 Angular knowledge, ended with something i think is somewhat decent.
-One of the project requirements was that everything should be done on the client side, aka, no backend, and that is why this project is using IndexedDB.
-When running this project for the first time, go to `http://localhost:4200/debug` and click on the buttons in any order to add data to IndexedDB.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+When running this project for the first time, you will be redirected to `http://localhost:4200/debug` to add initial data to IndexedDB.
 
 ## Docker image
 
-I created a Docker image of this project, to pull and run the image use: 
-
-`docker run --name <name-of-the-container> -d -p 8080:80 markomi1/singimeet`
+If you want to run it in Docker, here is an example command: 
+ 
+```bash
+docker run -p 8080:80 markomi1/singimeet
+```
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.  
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
+Run `ng generate component component-name` to generate a new component.  
+You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
